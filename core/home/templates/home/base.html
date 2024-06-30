@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Food Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* .jumbotron {
+        background-image: url("food-banner.jpg");
+        background-size: cover;
+        height: 500px;
+        color: white;
+      } */
+      @media (max-width: 768px) {
+        .jumbotron {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="bg-[#1d4ed8] text-white flex items-center flex-grow justify-between p-3"
+    >
+      <div class="flex  flex-shrink-0 mr-6">
+        <a class="font-semibold text-xl tracking-tight ml-4" href="#">Online Food</a>
+      </div>
+      <div class="block sm:hidden">
+        <button
+          class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white"
+        >
+          <svg
+            class="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <div class=" hidden w-full  sm:flex ">
+        <div class="flex   w-full mx-5 gap-x-5">
+          <a
+            href="#"
+            class="block mt-4 lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"
+          >
+            Home
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"          >
+            Menu
+          </a>
+          <a
+            href="#"
+            class="block mt-4 lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"          >
+            About
+          </a>
+          <a
+            href="/contact/"
+            class="block mt-4 lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"          >
+            Contact
+          </a>
+        </div>
+        <div class="right w-1/4 flex text-center items-center justify-center px-4 py-2  ">
+            <div>
+          <a
+            href="#"
+            class="text-white text-center  hover:text-primary  mt-4 lg:mt-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 items-center justify-center"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+          </a></div>
+          <div>
+          <a
+            href="#"
+            class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-primary hover:bg-white mt-4 lg:mt-0"
+          >
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+        </div>
+      </div>
+    </nav>
+    {% block content%} {% endblock %}
+
+    <footer class="bg-light text-dark text-center p-3">
+      <p>© 2023 Online Food Platform</p>
+    </footer>
+  </body>
+</html>
