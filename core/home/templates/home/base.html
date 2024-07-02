@@ -4,7 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{%block title%} {%endblock%} </title>
+    <title>{%block title%} {%endblock%}</title>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       /* .jumbotron {
@@ -23,93 +31,122 @@
 
   <body>
     <nav
-      class="bg-gradient-to-r from-indigo-600 to-emerald-700 lg:px-40 text-white flex items-center flex-grow justify-between p-3 rounded-lg "
+      class="bg-gradient-to-r from-indigo-600 to-emerald-700 lg:w-[80%] mx-auto text-white flex items-center justify-between py-3 rounded-lg"
     >
-      <div class="flex  flex-shrink-0 mr-6">
-        <a class="font-semibold text-xl tracking-tight ml-4" href="#">Online Food</a>
-      </div>
-      <div class="block sm:hidden">
-        <button
-          class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white"
+      <div class="">
+        <a class="font-semibold text-xl tracking-tight ml-8" href="#"
+          >OnlineFood</a
         >
+      </div>
+
+      <div
+        class="nav-list duration-700 absolute md:static top-[-100%] md:top-3 w-full items-center md:mx-10  md:w-[100%]"
+      >
+        <ul
+          class="flex px-8 md:flex-row h-screen flex-col gap-y-5 pt-10 md:pt-0 md:mt-0 h-full mt-20 md:mt-0 md:bg-none md:h-auto w-full items-center gap-x-5 transparancy-60 "
+          id="menu"
+        >
+          <li>
+            <a
+              href="/"
+              class="block lg:py-3 lg:mt-0 text-white hover:text-white mr-4"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/menue/"
+              class="block lg:py-3 lg:mt-0 text-white hover:text-white mr-4"
+              >Menu</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact/"
+              class="block lg:py-3 lg:mt-0 text-white hover:text-white mr-4"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="hidden md:flex items-center justify-center md:items-start px-8 py-4 gap-x-3"
+      >
+        <a href="#" class="text-white hover:text-primary">
           <svg
-            class="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
           </svg>
+        </a>
+        <a href="#" class="text-white hover:text-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <div class="menu md:hidden mr-6 flex items-center">
+        <button class="menue text-3xl rounded-xl curser-pointer">
+          <ion-icon onclick="toggleMenu(this)" name="menu-outline"></ion-icon>
+          <!-- <ion-icon onclick="toggleMenu(this)" name="close" ></ion-icon> -->
         </button>
       </div>
-      <div class=" hidden w-full items-center sm:flex ">
-        <div class="flex   w-full items-center mx-5 gap-x-5">
-          <a
-            href="/"
-            class="block  lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"
-          >
-            Home
-          </a>
-          <a
-            href="/menue/"
-            class="block  lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"          >
-            Menu
-          </a>
-         
-          <a
-            href="/contact/"
-            class="block lg:py-3  lg:mt-0 items-center  text-white hover:text-white mr-4"          >
-            Contact
-          </a>
-        </div>
-        <div class="right w-1/4 flex text-center items-center justify-center px-4 py-2 gap-x-3 ">
-            <div>
-          <a
-            href="#"
-            class="text-white text-center  hover:text-primary  mt-4 lg:mt-0"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 items-center justify-center"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-              />
-            </svg>
-          </a></div>
-          <div>
-          <a
-            href="#"
-            class="text-white text-center  hover:text-primary  mt-4 lg:mt-0"          >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
-          </svg>
-          
-          </a>
-        </div>
-        </div>
-      </div>
     </nav>
+
     {% block content%} {% endblock %}
 
-    <footer class="bg-gradient-to-r from-indigo-600 to-emerald-700 text-white w-full  text-center p-3">
+    <footer
+      class="bg-gradient-to-r from-indigo-600 to-emerald-700 text-white w-full text-center p-3"
+    >
       <div class="mt-12 w-full">
         <h3 class="text-2xl font-semibold mb-6">About Us</h3>
-        <p class="text-lg leading-relaxed ">
-            At <strong>Foodies Paradise</strong>, we are passionate about providing a diverse range of delicious cuisines right to your doorstep. Our mission is to deliver high-quality food with exceptional customer service.
+        <p class="text-lg leading-relaxed">
+          At <strong>Foodies Paradise</strong>, we are passionate about
+          providing a diverse range of delicious cuisines right to your
+          doorstep. Our mission is to deliver high-quality food with exceptional
+          customer service.
         </p>
-        <p class="text-lg leading-relaxed  mt-4">
-            We believe in making food ordering a delightful experience. Browse our menu, choose your favorite dishes, and enjoy a delightful meal at home.
+        <p class="text-lg leading-relaxed mt-4">
+          We believe in making food ordering a delightful experience. Browse our
+          menu, choose your favorite dishes, and enjoy a delightful meal at
+          home.
         </p>
-       
-    </div>
+      </div>
       <p>© 2023 Online Food Platform</p>
     </footer>
+
+    <script>
+      const navlink = document.querySelector(".nav-list");
+      function toggleMenu(e) {
+        e.name = e.name === "menu-outline" ? "close" : "menu-outline";
+        navlink.classList.toggle("top-[9%]");
+        console.log(navlink.style.background);
+        if (navlink.style.background == "grey") {
+          navlink.style.background = "none";
+        } else {
+          navlink.style.background = "grey";
+        }
+      }
+    </script>
   </body>
 </html>
