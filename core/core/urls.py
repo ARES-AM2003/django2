@@ -16,12 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from home.views import home,contact,menue
+from home.views import home,Contact,menue
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from order.views import signup,Order,Login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('contact/', contact, name='contact'),
+    path('contact/', Contact, name='contact'),
    
     path('menue/', menue, name='menue'),
+    path('signup/', signup, name='signup'),
+    path('login/', Login, name='login'),
+    path('order/', Order, name='Order'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns+=staticfiles_urlpatterns()

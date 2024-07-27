@@ -1,0 +1,83 @@
+{% extends 'home/base.html' %} {% block content %}
+{% comment %} <div class="flex justify-center"> {% endcomment %}
+<div class="md:p-6  mt-10 mx-auto flex w-full lg:w-[60%] justify-center">
+  
+  <div class="md:p-6 mx-auto w-[80%] lg:w-[70%] bg-white bg-opacity-20 backdrop-blur-lg rounded-xl shadow-lg">
+    <form method="post" action="" class="space-y-6 ml-auto px-10 lg:px-20 "> 
+      {% csrf_token %}
+      <h1 class="mb-6 text-3xl text-black">Sign up</h1>
+      <div class="mx-auto flex flex-col  w-full  ">
+        <label class="text-black "> username</label><br>
+        <input
+          type="text"
+          name="username"
+          class="appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
+          required
+        />
+      </div>
+      <div>
+        <label class="text-black"> Full name</label><br>
+        <input
+          type="text"
+          name="first_name"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
+          required
+        />
+      </div>
+      <div>
+        <label class="text-black"> lastname</label><br>
+        <input
+          type="text"
+          name="last_name"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
+          required
+        />
+      </div>
+      <div>
+        <label class="text-black"> E-mail</label><br>
+        <input
+          type="email"
+          name="email"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
+          required
+        />
+      </div>
+      <div>
+        <label class="text-black"> Password</label><br>
+        <input
+          type="password"
+          name="password"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
+          required
+        />
+      </div>
+      <div>
+        <label class="text-black">Re-enter Password</label><br>
+        <input
+          type="password"
+          name="password1"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
+          required
+        />
+      </div>
+      {% if messages %}
+      {% for message in messages %}
+      <div
+        class="border w-full px-6 py-4 rounded-xl relative bg-white bg-opacity-10 backdrop-blur-sm"
+        role="alert"
+      > 
+      <strong class="font-bold text-white">{{ message }}</strong>
+    </div>
+    {% endfor %}
+      {% endif %}
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+        Signup
+    </button>
+      <div class="px-6 py-4 text-center">
+        <p class="text-gray-700">Already have an account? <a href="{% url 'login' %}" class="text-blue-500 hover:text-blue-700"> Login</a></p>
+    </div>
+    </form>
+  </div>
+</div>
+{% comment %} </div> {% endcomment %}
+{% endblock %}
