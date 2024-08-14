@@ -1,43 +1,28 @@
 {% extends "home/base.html" %}
-
 {% block title %}Menu{% endblock %}
-
 {% block content %}
 <div class="max-w-6xl mx-auto p-10 bg-white shadow-md rounded-lg mt-10">
-    <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Example menu item -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Spicy Chicken Curry</h3>
-            <p class="text-gray-700">A rich and spicy chicken curry made with a blend of authentic spices.</p>
-            <p class="text-indigo-600 font-bold mt-2">$12.99</p>
+  <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    {% for menu in menue %}
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold mb-2">{{ menu.cname }}</h3>
+
+      {% for item in product %}
+      {% if item.cname is menu.name %}
+      <div class="bg-white p-4 rounded-lg shadow-sm mt-4">
+          <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-full h-48 object-cover rounded-lg mb-4">
+          <h4 class="text-lg font-semibold mb-2">{{ item.name }}</h4>
+          <p class="text-gray-700">{{ item.description }}</p>
+          <p class="text-indigo-600 font-bold mt-2">{{ item.price }}</p>
         </div>
-        <!-- Add more menu items here -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Margherita Pizza</h3>
-            <p class="text-gray-700">Classic Margherita pizza with fresh basil, mozzarella, and tomato sauce.</p>
-            <p class="text-indigo-600 font-bold mt-2">$9.99</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Sushi Platter</h3>
-            <p class="text-gray-700">An assortment of fresh sushi rolls and sashimi.</p>
-            <p class="text-indigo-600 font-bold mt-2">$15.99</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Vegan Buddha Bowl</h3>
-            <p class="text-gray-700">A healthy bowl with quinoa, chickpeas, avocado, and mixed greens.</p>
-            <p class="text-indigo-600 font-bold mt-2">$10.99</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Pasta Carbonara</h3>
-            <p class="text-gray-700">Traditional Italian pasta with creamy sauce and pancetta.</p>
-            <p class="text-indigo-600 font-bold mt-2">$11.99</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Caesar Salad</h3>
-            <p class="text-gray-700">Crispy romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.</p>
-            <p class="text-indigo-600 font-bold mt-2">$8.99</p>
-        </div>
+        {% endif %}
+      {% endfor %}
+      
     </div>
+    {% endfor %}
+    
+  </div>
 </div>
 {% endblock %}

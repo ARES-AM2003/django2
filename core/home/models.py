@@ -2,10 +2,12 @@ from django.db import models
 
 # Create your models here.
 class Menue(models.Model):
-    name = models.CharField(max_length=200)
+    cname = models.CharField(max_length=200)
     slug=models.SlugField()
     def __str__ (self):
-        return self.name
+        return self.cname
+    def __eq__(self, other) :
+        return self.cname == other.cname
     
 
 
@@ -17,8 +19,11 @@ class Products(models.Model):
     slug=models.SlugField()
     def __str__ (self):
         return self.name
+    cname = models.ForeignKey(Menue,related_name="product", on_delete=models.CASCADE)
+    def __eq__(self, other) :
+        return self.cname == other.cname
     
-    category = models.ForeignKey(Menue,related_name="product", on_delete=models.CASCADE)
+    
 
 class contact(models.Model):
     name = models.CharField(max_length=200)

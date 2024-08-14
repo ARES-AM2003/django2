@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Products,contact
+from .models import Products,contact,Menue
 
 
 
@@ -25,4 +25,8 @@ def Contact(request):
 
 
 def menue(request):
-    return render(request, 'home/menue.html')
+    product=Products.objects.all()
+    menue=Menue.objects.all()
+    # print(product[1].category)
+    things_to_send= {'product':product,'menue':menue}
+    return render(request, 'home/menue.html',things_to_send)
